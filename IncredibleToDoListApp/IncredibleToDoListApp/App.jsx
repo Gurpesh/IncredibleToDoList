@@ -1,23 +1,20 @@
-/**
- * My To Do List App
- *
- * @format
- */
-
 import React from 'react';
-import {SafeAreaview, StyleSheet} from 'react-native';
-import ToDoForm from './components/ToDoForm';
-import ToDoList from './components/ToDoList';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/native-stack';
+import HomeScreen from './screens/HomeScreen';
+import AboutScreen from './screens/AboutScreen';
+
+const Stack = createStackNavigator();
 
 function App() {
   return (
-    <SafeAreaview>
-      <ToDoForm />
-      <ToDoList />
-    </SafeAreaview>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="About" component={AboutScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({});
 
 export default App;
